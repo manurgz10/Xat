@@ -168,6 +168,7 @@ function enviarXat() {
       } else {
         console.error("Error:", ehttp.status);
       }
+      getMessage();
     };
     ehttp.send();
   }
