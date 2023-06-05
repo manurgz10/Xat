@@ -4,6 +4,18 @@ body {
   margin: 0;
   padding: 0;
 }
+.message {
+  margin-bottom: 10px;
+}
+
+.message.received .content {
+  background-color: #f2f2f2; /* Color del bocadillo al recibir un mensaje */
+}
+
+.message.sent .content {
+  background-color: #e2f7f2; /* Color del bocadillo al enviar un mensaje */
+}
+
 
 .chat-container {
   max-width: 600px;

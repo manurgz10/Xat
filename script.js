@@ -146,59 +146,69 @@ function enviarXat() {
     var receptor = document.getElementById("friends").value;
     var sms = document.getElementById("message").value;
     var ehttp = new XMLHttpRequest();
-
-    ehttp.open("POST","http://localhost:8080/Xat/Xat?mail="+mail+"&session="+session+ "&receptor="+receptor+"&sms="+sms, true)
-
+  
+    ehttp.open("POST","http://localhost:8080/Xat/Xat?mail="+mail+"&session="+session+ "&receptor="+receptor+"&sms="+sms, true);
+  
     ehttp.onload = function() {
-        if (ehttp.status == 200) {
-            var response = ehttp.responseText;
-            var messageContainer = document.getElementById("message-container");
-            var newMessage = document.createElement("p");
-            newMessage.textContent = "Tú: " + sms;
-            messageContainer.appendChild(newMessage);
-            document.getElementById("message").value = ""; // Limpiar el campo de entrada después de enviar el mensaje
-            getMessage();
-        } else {
-            console.error("Error:", ehttp.status);
-        }
+      if (ehttp.status == 200) {
+        var response = ehttp.responseText;
+        var messageContainer = document.getElementById("message-container");
+        var newMessage = document.createElement("div");
+        newMessage.classList.add("message", "sent"); // Agrega las clases CSS "message" y "sent"
+        
+        var contenidoElement = document.createElement("div");
+        contenidoElement.classList.add("content");
+        contenidoElement.textContent = "Tú: " + sms;
+        
+        newMessage.appendChild(contenidoElement);
+        messageContainer.appendChild(newMessage);
+        
+        document.getElementById("message").value = ""; // Limpiar el campo de entrada después de enviar el mensaje
+        getMessage();
+      } else {
+        console.error("Error:", ehttp.status);
+      }
     };
     ehttp.send();
-}
-
-
-function getMessage() {
+  }
+  
+  function getMessage() {
     var mail = sessionStorage.getItem('mail');
     var session = sessionStorage.getItem('session');
-
-    let ehttp = new XMLHttpRequest();
-
+  
+    var ehttp = new XMLHttpRequest();
+  
     ehttp.open("GET", "http://localhost:8080/Xat/Xat?mail=" + mail + "&session=" + session, true);
     ehttp.send();
-
+  
     ehttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var response = ehttp.responseText;
-            console.log("Respuesta del servidor:", response);
-    
-            try {
-                var message = JSON.parse(response);
-                console.log("Mensaje recibido:", message);
-    
-                var messageContainer = document.getElementById("message-container");
-                var text = message.text;
-                var emisor1 = message.emisor;
-                var mensaje = document.createElement("p");
-                mensaje.textContent = "De: " + emisor1 + ": " +  text;
-                messageContainer.appendChild(mensaje);
-            } catch (error) {
-                console.error("Error al analizar la respuesta JSON:", error);
-            }
+      if (this.readyState == 4 && this.status == 200) {
+        var response = ehttp.responseText;
+        console.log("Respuesta del servidor:", response);
+  
+        try {
+          var message = JSON.parse(response);
+          console.log("Mensaje recibido:", message);
+  
+          var messageContainer = document.getElementById("message-container");
+          var text = message.text;
+          var emisor1 = message.emisor;
+          var newMessage = document.createElement("div");
+          newMessage.classList.add("message", "received"); // Agrega las clases CSS "message" y "received"
+          
+          var contenidoElement = document.createElement("div");
+          contenidoElement.classList.add("content");
+          contenidoElement.textContent = "De: " + emisor1 + ": " +  text;
+          
+          newMessage.appendChild(contenidoElement);
+          messageContainer.appendChild(newMessage);
+        } catch (error) {
+          console.error("Error al analizar la respuesta JSON:", error);
         }
+      }
     };
-    
-    
-    
-}
+  }
+
 
 
 
