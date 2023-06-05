@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="css/registercss.css">
+    <title>Registre</title>
+</head>
+<body onload="getCountry()">
+    <div class="container">
+        <h1>Registre</h1>
+
+            <label for="user">User:</label>
+            <input type="text" id="user" name="user"><br><br>
+    
+            <label for="mail">Mail:</label>
+            <input type="text" id="mail" name="mail"><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+
+            <label for="codecountry">Pais:</label>
+            <select id="codecountry" name="codecountry">
+            </select>
+            <br><br>
+            <button onclick="enviar1()" type="submit" value="Enviar">Enviar</button>
+            <button id="button1" onclick="redirigir()">Ja tens compte?</button>
+
+        </div>
+</body>
+</html>

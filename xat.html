@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/xatcss.css">
+    <script src="script.js"></script>
+    <title>Xat</title>
+</head>
+<body onload="getFriends();getMessage()">
+    <div class="chat-container">
+        <div class="friend-select">
+            <label for="friends">Lista de amigos:</label>
+            <select id="friends" name="friends">
+            </select>
+        </div>
+        <div class="chat-box">
+          <div id="message-container" class="message">
+            <!-- Los mensajes se agregarán aquí dinámicamente -->
+          </div>
+        </div>
+        <div class="input-box">
+          <input id="message" type="text" placeholder="Escribe tu mensaje...">
+          <button onclick="enviarXat()">Enviar</button>
+        </div>
+    </div>
+</body>
+</html>

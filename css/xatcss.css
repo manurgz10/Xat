@@ -1,0 +1,85 @@
+body {
+  background-color: cornsilk;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.friend-select {
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.friend-select label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+select#friends {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.chat-box {
+  padding: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.message {
+  margin-bottom: 10px;
+}
+
+
+.message .content {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.input-box {
+  padding: 20px;
+  border-top: 1px solid #ccc;
+}
+
+.input-box input#message {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.input-box button {
+  background-color: #3366cc;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.input-box button:hover {
+  background-color: #285f9e;
+}
+
+.input-box button:active {
+  background-color: #1f497d;
+}
