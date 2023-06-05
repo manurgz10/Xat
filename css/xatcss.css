@@ -95,3 +95,14 @@ select#friends {
 .input-box button:active {
   background-color: #1f497d;
 }
+
+#tornar {
+  background-color: #b4ac42;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
